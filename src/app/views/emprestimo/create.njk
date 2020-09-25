@@ -1,0 +1,76 @@
+{% extends "layout.njk" %}
+
+{% block head %}
+    <title>Emprestimos</title>
+{% endblock %}
+
+{% block content %}
+
+    {% if livroD.status == 0%}
+        <form class="card" method="POST" action="/emprestimo">
+
+            <section class="avatar" style="background: url(https://images.unsplash.com/photo-1471970471555-19d4b113e9ed?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=80) no-repeat center center / cover;"></section>
+
+            <section class="details">
+                <h3>Emprestimo</h3>
+
+                <div class="item">
+                    <div>Aluno</div>
+                    <div>
+                        <select name="idAluno">
+
+                            {% for aluno in alunoOptions %}
+                                <option value="{{aluno.id}}">
+                                    {{aluno.numMatricula}}
+                                    -
+                                    {{aluno.nome}}
+                                </option>
+                            {% endfor %}
+
+                        </select>
+                    </div>
+                </div>
+
+                <input type="hidden" name="idLivro" value="{{livroD.id}}">
+
+                <div class="item">
+                    <div>Livro</div>
+                    <div>
+                        <input type="text" name="livro" value="{{ livroD.titulo }}" readonly="readonly">
+                    </div>
+                </div>
+
+                <button type="submit">Realizar Empréstimo</button>
+            </section>
+
+        </form>
+    {% endif %}
+
+    {% if livroD.status == 1 %}
+        <form id="retirar" class="card" method="POST" action="/retirar">
+
+            <section class="avatar" style="background: url(https://images.unsplash.com/photo-1471970471555-19d4b113e9ed?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=80) no-repeat center center / cover;"></section>
+
+            <section class="details">
+                <h3>Cancelar Empréstimo</h3>
+                <input type="hidden" value="{{livroD.id}}" name="idLivro">
+                <button type="submit">Cancelar Empréstimo</button>
+            </section>
+
+        </form>
+
+        <script>
+
+                const formDelete = document.querySelector("#retirar")
+                formDelete.addEventListener("submit", (event) =>{
+                    const confirmation = confirm("Deseja Cancelar o empréstimo?")
+                    if(!confirmation){
+                        event.preventDefault()
+                    }
+                })
+
+            </script>
+
+    {% endif %}
+
+{% endblock %}

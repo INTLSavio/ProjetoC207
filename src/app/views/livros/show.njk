@@ -1,0 +1,53 @@
+{% extends "layout.njk" %}
+
+{% block head %}
+    <title>Livros</title>
+{% endblock %}
+
+{% block content %}
+    
+    <div class="card">
+
+        <section class="avatar" style="background: url(https://images.unsplash.com/photo-1471970471555-19d4b113e9ed?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=80) no-repeat center center / cover;"></section>
+
+        <section class="details">
+            
+            <h3>Livro</h3>
+
+            <div class="item">
+                <div>Título</div>
+                <div>{{ livro.titulo }}</div>
+            </div>
+
+            <div class="item">
+                <div>Gênero</div>
+                <div>{{ livro.genero }}</div>
+            </div>
+
+            <div class="item">
+                <div>Número de Páginas</div>
+                <div>{{ livro.numPaginas }} </div>
+            </div>
+
+            <div class="item">
+                <div>Status</div>
+                <div>{{ "Disponível" if livro.status == 0 else "Emprestado" }}</div>
+            </div>
+
+            <div class="item">
+                <div>Data da Publicação</div>
+                <div>{{ livro.dataPublicacao }}</div>
+            </div>
+
+            <!--<div class="item">
+                <div>Emprestado para</div>
+                <div>{{"Não está emprestado" if livro.aluno_id == null else livro.aluno_id}}</div>
+            </div>-->
+
+            <a href="/livros/{{ livro.id }}/edit" class="button">Editar</a>
+
+        </section>
+
+    </div>
+
+{% endblock %}

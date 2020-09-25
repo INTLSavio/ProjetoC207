@@ -1,0 +1,51 @@
+{% extends "layout.njk" %}
+
+{% block head %}
+    <title>Livros</title>
+{% endblock %}
+
+{% block content %}
+    
+    <div class="card table-container">
+        <table width="100%">
+            <thead>
+                <tr>
+                    <th>Livro</th>
+                    <th>Número de autores</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for livro in livros %}
+                <tr>
+                    <td>{{ livro.titulo }}</td>
+                    <td>{{ livro.numAutores}}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+            
+        </table>
+        
+    </div>
+
+    <div class="card table-container">
+        <table width="100%">
+            <thead>
+                <tr>
+                    <th>Aluno</th>
+                    <th>Número de empréstimos</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for aluno in alunos %}
+                <tr>
+                    <td>{{ aluno.nome }}</td>
+                    <td>{{ aluno.numEmprestimos }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+            
+        </table>
+        
+    </div>
+
+{% endblock %}

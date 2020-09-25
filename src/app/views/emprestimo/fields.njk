@@ -1,0 +1,38 @@
+{% if livro.status == 0%}
+    <h3>Emprestimo</h3>
+
+    <div class="item">
+        <div>Aluno</div>
+        <div>
+            <select name="idAluno">
+
+                {% for aluno in alunoOptions %}
+                    <option value="{{aluno.id}}">
+                        {{aluno.numMatricula}}
+                        -
+                        {{aluno.nome}}
+                    </option>
+                {% endfor %}
+
+            </select>
+        </div>
+    </div>
+
+    <input type="hidden" name="idLivro" value="{{livro.id}}">
+
+    <div class="item">
+        <div>Livro</div>
+        <div>
+            <input type="text" name="livro" value="{{ livro.titulo }}" readonly="readonly">
+        </div>
+    </div>
+
+    <button type="submit">Realizar Empréstimo</button>
+{% endif %}
+
+{% if livro.status == 1 %}
+
+    <h3>Cancelar Empréstimo</h3>
+    <button type="submit">Cancelar Empréstimo</button>
+
+{% endif %}

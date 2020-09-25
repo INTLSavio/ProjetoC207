@@ -1,0 +1,50 @@
+<div class="item">
+    <div>Título do Livro</div>
+    <div>
+        <input type="text" name="titulo" value="{{ livro.titulo }}">
+    </div>
+</div>
+
+<div class="item">
+    <div>Gênero</div>
+    <div>
+        <input type="text" name="genero" value="{{ livro.genero }}">
+    </div>
+</div>
+
+<div class="item">
+    <div>Número de Páginas</div>
+    <div>
+        <input type="number" name="numPaginas" value="{{ livro.numPaginas }}">
+    </div>
+</div>
+
+<div class="item">
+    <div>Autores</div>
+    <div>
+        <input type="text" name="autores" value="{{ livro.autores }}" placeholder="Separe os autores por vírgulas">
+    </div>
+</div>
+
+<div class="item">
+    <div>Status do Livro</div>
+    <div>
+        <select name="status">
+            <option value="0">
+                Disponível
+            </option>
+        </select>
+    </div>
+</div>
+
+<div class="item">
+    <div>Data da Publicação</div>
+    <div>
+        <input type="date" name="dataPublicacao" value="{{ livro.dataPublicacao }}">
+    </div>
+</div>
+
+<input type="hidden" name="idAutor">
+<input type="hidden" name="idLivro">
+
+<button type="submit">Salvar</button>

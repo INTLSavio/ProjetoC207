@@ -1,0 +1,39 @@
+{% extends "layout.njk" %}
+
+{% block head %}
+    <title>Livros</title>
+{% endblock %}
+
+{% block content %}
+    
+    <div class="card table-container">
+        <a href="/livros/create">Novo</a>
+        <table width="100%">
+            <thead>
+                <tr>
+                    <th>Livro</th>
+                    <th>Gênero</th>
+                    <th>Num de Páginas</th>
+                    <th>Status</th>
+                    <th>Detalhes</th>
+                    <th>Empréstimo de Livro</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for livro in livros %}
+                <tr>
+                    <td>{{ livro.titulo }}</td>
+                    <td>{{ livro.genero }}</td>
+                    <td>{{ livro.numPaginas }}</td>
+                    <td>{{ "Disponível" if livro.status == 0 else "Emprestado" }}</td>
+                    <td><a href="/livros/{{livro.id}}"> Ver </a></td>
+                    <td><a href="/livros/{{livro.id}}/emprestimo"> Empréstimo </a></td>
+                </tr>
+                {% endfor %}
+            </tbody>
+            
+        </table>
+        
+    </div>
+
+{% endblock %}

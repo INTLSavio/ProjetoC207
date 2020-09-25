@@ -1,0 +1,75 @@
+<div class="item">
+    <div>Aluno</div>
+    <div>
+        <input 
+            type="text" 
+            name="name" 
+            placeholder="Nome do Aluno"
+            value="{{ aluno.nome }}"
+        >
+    </div>
+</div>
+
+<div class="item">
+    <div>Data de Nascimento</div>
+    <div>
+        <input 
+            type="date" 
+            name="birth"
+            value="{{ aluno.dataNasc }}"
+        >
+    </div>
+</div>
+
+<div class="item">
+    <div>Sexo</div>
+    <div>
+        <span><input 
+            type="radio" 
+            name="gender" 
+            value="M"
+            {% if aluno.sexo == 'M' %}
+                checked
+            {% endif %}
+            checked
+        > Masculino</span>
+
+        <span>
+            <input 
+                type="radio" 
+                name="gender" 
+                value="F"
+                {% if aluno.sexo == 'F' %}
+                    checked
+                {% endif %}
+            > 
+            Feminino
+        </span>
+    </div>
+</div>
+
+<div class="item">
+    <div>Numero de Matrícula</div>
+    <div>
+        <input 
+            type="number" 
+            name="cpf" 
+            placeholder="Matrícula do Aluno"
+            value="{{ aluno.numMatricula }}"
+        >
+    </div>
+</div>
+
+<div class="item">
+    <div>Curso</div>
+    <div>
+        <input 
+            type="text" 
+            name="course" 
+            placeholder="Curso do Aluno"
+            value="{{ aluno.curso }}"
+        >
+    </div>
+</div>
+
+<button type="submit">Salvar</button>
