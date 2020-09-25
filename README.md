@@ -30,8 +30,9 @@ $ git clone https://github.com/INTLSavio/projetoC207.git
 # Instale as dependências do projeto
 $ yarn ou $ npm install
 
-# Entre na pasta config e acesse o arquivo db.js
-# Configure o arquivo de acordo com a sua instância do MySQL
+Entre na pasta config e acesse o arquivo db.js
+Configure o arquivo de acordo com a sua instância do MySQL
+
 # Após a configuração basta iniciar a nossa aplicação
 $ yarn start ou $ npm start
 # Aplicação rodando!!!
